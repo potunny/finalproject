@@ -17,18 +17,29 @@ body {
 /* Header Styling */
 header {
     background-color: #ffb6c1;
-    padding: 20px;
+    padding-left: 14px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-right: 14px;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-header .logo img {
-    width: 100px;
-    height: auto; /* Keep aspect ratio */
-    max-height: 15px; /* Restrict height */
-    display: block; /* Remove extra inline spacing */
+.logo img{
+    width: 216px;
+    height: 48px;
+    padding-top: 8px;
+    padding-right: 10px;
 }
+
+/*header .logo img {
+    width: 100px;
+    height: auto; 
+    max-height: 15px; 
+    display: block; 
+}
+*/
 
 header nav ul {
     list-style: none;
