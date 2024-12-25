@@ -26,3 +26,29 @@ addToCartButtons.forEach(button => {
 
 // Initialize the badge on page load
 updateCartBadge();
+
+
+
+// Carousel:
+
+document.querySelectorAll('.carousel').forEach(carousel => {
+    const images = carousel.querySelector('.carousel-images');
+    const prevButton = carousel.querySelector('.prev');
+    const nextButton = carousel.querySelector('.next');
+    const totalImages = images.children.length;
+    let index = 0;
+
+    function updateCarousel() {
+        images.style.transform = `translateX(-${index * 100}%)`;
+    }
+
+    prevButton.addEventListener('click', () => {
+        index = (index - 1 + totalImages) % totalImages; // Wrap around to the last image
+        updateCarousel();
+    });
+
+    nextButton.addEventListener('click', () => {
+        index = (index + 1) % totalImages; // Wrap around to the first image
+        updateCarousel();
+    });
+});
