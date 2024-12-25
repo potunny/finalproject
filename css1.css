@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Karla:ital,wght@0,200..800;1,200..800&display=swap');
+
 /* Basic Reset */
 * {
     margin: 0;
@@ -7,44 +9,73 @@
 
 /* Body Styling */
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: "Karla", serif, Arial, Helvetica, sans-serif;
+    font-weight: 380;
     background-color: #f8f8f8;
     color: #555;
     line-height: 1.6;
     text-align: center;
 }
 
+/*last*/
 /* Header Styling */
 header {
     background-color: #ffb6c1;
-    padding-left: 14px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    padding-right: 14px;
+    padding: 5px 14px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative; /* Ensuring relative positioning for badge */
 }
 
-.logo img{
-    width: 216px;
-    height: 48px;
-    padding-top: 8px;
-    padding-right: 10px;
+/* Cart Container */
+.cart-container {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
 }
 
-/*header .logo img {
-    width: 100px;
-    height: auto; 
-    max-height: 15px; 
-    display: block; 
+/* Cart Button Styling */
+.cart-button {
+    font-size: 1.2em;
+    background-color: rgb(144, 144, 255);
+    border: none;
+    cursor: pointer;
+    color: white;
+    padding: 6px 10px;
+    border-radius: 5px;
 }
-*/
+
+/* Cart Badge Styling */
+.badge {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    width: 18px;
+    height: 18px;
+    background-color: red;
+    color: white;
+    font-size: 12px;
+    display: none;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 18px;
+}
+
+.badge.visible {
+    display: block;
+}
+
+/* Navigation Styling */
+header nav {
+    margin-left: 20px; /* Add some space from the logo */
+}
 
 header nav ul {
     list-style: none;
     display: flex;
-    gap: 20px;
+    gap: 15px; /* Reduced space between nav items */
+    margin: 0; /* Remove default margin */
 }
 
 header nav a {
@@ -56,6 +87,29 @@ header nav a {
 
 header nav a:hover {
     color: #ff1493;
+}
+
+/*last*/
+
+header {
+    background-color: #ffb6c1;
+    padding-left: 14px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-right: 14px;
+    display: flex;
+    justify-content: space-between;
+    position: relative; /*dia 25 linha*/
+    align-items: center;
+}
+
+.logo img{
+    width: 230px;
+    height: 48px;
+    margin-left: 8px;
+    padding-top: 8px;
+    padding-right: 8px;
+    cursor: pointer;
 }
 
 /* Hero Section */
@@ -86,6 +140,12 @@ header nav a:hover {
     margin-bottom: 20px;
 }
 
+#FancyTitle{
+    font-family: "Dancing Script", serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
 .gallery-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -98,6 +158,7 @@ header nav a:hover {
     max-width: 310px; /* Limit the width */
     height: 280px; /* Maintain aspect ratio */
     object-fit: cover;
+    cursor: pointer;
     border-radius: 10px;
 }
 
@@ -130,6 +191,12 @@ div img {
 }
 
 /* Contact Section */
+.external-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.15em;
+}
+
 #contact {
     background-color: #ffe4e1;
     padding: 50px 10%;
@@ -162,11 +229,88 @@ footer {
     color: white;
     font-size: 1em;
 }
+/*dia 25*/
+#products {
+    text-align: center;
+    padding: 20px;
+}
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+.product-item {
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.product-item img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+.product-item h3 {
+    font-size: 1.2em;
+    margin: 10px 0;
+}
+.product-item .price {
+    color: #28a745;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.product-item .add-to-cart {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+}
+.product-item .add-to-cart:hover {
+    background-color: #0056b3;
+}
+/*dia 25*/
 
 /* Responsive Design */
 @media (max-width: 768px) {
     .gallery-grid {
         grid-template-columns: 1fr;
+    }
+
+    body {
+        font-size: 14px; /* Reduce base font size */
+    }
+
+    header {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    header nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .gallery-grid {
+        grid-template-columns: 1fr; /* Single column */
+        gap: 20px;
+    }
+
+    #gallery, #about, #contact {
+        padding: 20px 5%;
+    }
+
+    #hero h1 {
+        font-size: 1.8em;
+    }
+
+    .gallery-item img {
+        width: 300px;
+        max-width: 300px;
+        height: 300px;
     }
 }
 
@@ -199,8 +343,8 @@ footer {
     }
 
     .gallery-item img {
-        width: 100%;
+        width: 300px;
         max-width: 300px;
-        height: auto;
+        height: 300px;
     }
 }

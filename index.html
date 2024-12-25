@@ -5,26 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kawaii Raccoon Gallery</title>
     <link rel="stylesheet" href="css1.css">
+    <link rel="icon" href="tabicon.png" type="image/x-icon">
 </head>
 <body>
     <header>
         <div class="logo">
-            <img src="logo.png" alt="Kawaii Raccoon Gallery">
+            <a href="index.html">
+                <img src="logo.png" alt="Kawaii Raccoon Gallery">
+            </a>
         </div>
         <nav>
             <ul>
-                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="index.html">Gallery</a></li>
                 <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="contactform.html">Contact</a></li>
                 <li><a href="#art">Art</a></li>
-                <li><a href="#Buy">Buy</a></li>
-
+                <li><a href="buy.html">Buy</a></li>
+                <li>
+                    <a href="#cart" class="cart-link">
+                        Cart <span id="cart-badge" class="badge">0</span>
+                    </a>
+                </li>
             </ul>
         </nav>
-    </header>
+    </header>    
 
     <section id="hero">
-        <h1>Welcome to the Kawaii Raccoon Gallery!</h1>
+        <h1 id="FancyTitle">Welcome to the Kawaii Raccoon Gallery!</h1>
         <p>Enjoy the cutest raccoons you've ever seen!</p>
     </section>
     
@@ -77,15 +84,15 @@
             </div>
             <div class="gallery-item">
                 <img src="imagem-guaxi/guaxi12.png" alt="Cute raccoon 3">
-                <p>Mocha</p>
-            </div>
-            <div class="gallery-item">
-                <img src="imagem-guaxi/guaxi13.png" alt="Baby Raccoon">
                 <p>Socks</p>
             </div>
             <div class="gallery-item">
+                <img src="imagem-guaxi/guaxi13.png" alt="Baby Raccoon">
+                <p>Mocha</p>
+            </div>
+            <div class="gallery-item">
                 <img src="imagem-guaxi/guaxi14.png" alt="Cute raccoon 2">
-                <p>Patches</p>
+                <p>Bubbles</p>
             </div>
             <div class="gallery-item">
                 <img src="imagem-guaxi/guaxi15.png" alt="Cute raccoon 3">
@@ -93,7 +100,7 @@
             </div>
             <div class="gallery-item">
                 <img src="imagem-guaxi/guaxi16.png" alt="Cute raccoon 2">
-                <p>Bubbles</p>
+                <p>Patches</p>
             </div>
             <div class="gallery-item">
                 <img src="imagem-guaxi/guaxi17.png" alt="Cute raccoon 3">
@@ -113,11 +120,14 @@
 
     <section id="contact">
         <h2>Contact</h2>
-        <p>Have questions? Reach out to us through our email: <a href="mailto:info@raccoongallery.com">info@raccoongallery.com</a></p>
+        <p>Have questions? Reach out to us <a href="contactform.html" class="external-link" target="_blank">here <ion-icon name="open"></ion-icon></a></p>
     </section>
 
     <footer>
-        <p>2024 Kawaii Raccoon Gallery | Images are saved from the internet</p>
+        <p>2024 Kawaii Raccoon Gallery | Images are saved from the internet, I don't have credits</p>
     </footer>
+    <!--ionicons-->
+    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>

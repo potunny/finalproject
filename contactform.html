@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    <link rel="stylesheet" href="css1.css">
+    <link rel="icon" href="tabicon.png" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="index.html">
+            <img src="logo.png" alt="Kawaii Raccoon Gallery">
+            </a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html"">Gallery</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="contactform.html">Contact</a></li>
+                <li><a href="#art">Art</a></li>
+                <li><a href="buy.html">Buy</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    
+
+    <section id="contact">
+        <h2>Contact</h2>
+        <form action="action_page.php" method="GET"> <!--get is insecure, used for search bars, POST is secure-->
+            <div>
+              <label for="fname">first name:</label>
+              <input type="text" id="fname" placeholder="Jane" required>
+            </div>
+            <br>
+            <div>
+              <label for="lname">last name:</label>
+              <input type="text" id="lname" placeholder="Doe">
+            </div>
+            <br>
+            <div>
+              <label for="pass">password:</label>
+              <input type="password" id="pass" maxlength="12" required>
+            </div>
+            <br>
+            <div>
+              <label for="email">email:</label>
+              <input type="email" id="email" >
+            </div>
+            <br>
+            <div>
+              <label for="phone">phone number:</label>
+              <input type="tel" id="phone" >
+            </div>
+            <br>
+            <div>
+              <label for="bdate">birthdate:</label>
+              <input type="date" id="bdate" >
+            </div>
+            <br>
+            <div>
+              <label for="quant">quantity:</label>
+              <input type="number" id="quant" min="0" max="99" value="1">
+            </div>
+            <br>
+            <div>
+            <label for="title">title:</label> <!--label for and putting id below allows for the name to be selectable when choosing radio circle-->
+            
+              <label for="Mr.">Mr.</label>
+              <input type="radio" id="Mr." name="title">
+              <label for="Mrs.">Mrs.</label>
+              <input type="radio" id="Mrs." name="title">
+              <label for="PhD.">PhD.</label>
+              <input type="radio" id="PhD." name="title">
+            </div>
+            
+            <br>
+            
+            <div> <!--selectable menu with options-->
+              <label for="payment">payment:</label>
+              <select id="payment" name="payment">
+                <option value="visa">visa</option>
+                <option value="mastercard">mastercard</option>
+                <option value="giftcard">giftcard</option>
+              </select>
+            </div>
+            
+            <br>
+            
+            <div>
+              <label for="agree">I agree</label>
+              <input type="checkbox">
+            </div>
+            
+            <br>
+            
+            <div>
+            <input type="reset">
+            </div>
+            
+            <div>
+              <input type="submit">
+              </div>
+            </form>
+    </section>
+
+    <footer>
+        <p>2024 Kawaii Raccoon Gallery | Images are saved from the internet, I don't have credits</p>
+    </footer>
+</body>
+</html>
+
+</body>
+</html>
