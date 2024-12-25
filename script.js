@@ -1,7 +1,9 @@
-// Select the add to cart buttons and the badge element
+// Select the add-to-cart buttons and the badge element
 const addToCartButtons = document.querySelectorAll('.add-to-cart');
 const cartBadge = document.getElementById('cart-badge');
-let cartCount = 0;
+
+// Retrieve the cart count from localStorage or default to 0 if not set
+let cartCount = parseInt(localStorage.getItem('cartCount')) || 0;
 
 // Function to update the cart badge
 function updateCartBadge() {
@@ -17,6 +19,10 @@ function updateCartBadge() {
 addToCartButtons.forEach(button => {
     button.addEventListener('click', () => {
         cartCount++; // Increment cart count
+        localStorage.setItem('cartCount', cartCount); // Save the updated count to localStorage
         updateCartBadge(); // Update the badge whenever an item is added
     });
 });
+
+// Initialize the badge on page load
+updateCartBadge();
