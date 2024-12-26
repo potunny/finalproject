@@ -6,6 +6,10 @@
     <title>Raccoon Shop</title>
     <link rel="stylesheet" href="css1.css">
     <link rel="icon" href="tabicon.png" type="image/x-icon">
+    <!--arrow font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
 </head>
 <body>
     <header class="header">
@@ -25,16 +29,15 @@
         <div class="oldnav">
           <ul>
               <li><a href="index.html">Gallery</a></li>
-              <li><a href="#about">About</a></li>
+              <li><a href="about.html">About</a></li>
               <li><a href="contactform.html">Contact</a></li>
-              <li><a href="#art">Art</a></li>
               <li><a href="buy.html">Buy</a></li>
           </ul>
         </div>
         <div class="cart-container"> <!--also cart this line-->
         <!-- Cart Container with a Nested Cart Badge -->
-            <button class="cart-button">🛒</button>
-            <div id="cart-badge" class="badge"></div>
+            <button class="cart-button"><ion-icon name="cart" id="iconcart"></ion-icon></button>
+            <div id="cart-badge" class="badge">
         </div>
     </header>
     
@@ -62,14 +65,14 @@
               <div class="carousel">
                   <button class="prev">&lt;</button>
                   <div class="carousel-images">
-                      <img src="shirt/shirtwomen3.png" alt="Raccoon Mug 1">
-                      <img src="shirt/shirtwomen4.png" alt="Raccoon Mug 2">
-                      <img src="shirt/shirtwomen1.png" alt="Raccoon Mug 1">
-                      <img src="shirt/shirtwomen2.png" alt="Raccoon Mug 2">
+                      <img src="shirt/shirtwomen3.png" alt="Shirt 1">
+                      <img src="shirt/shirtwomen4.png" alt="Shirt 2">
+                      <img src="shirt/shirtwomen1.png" alt="Shirt 3">
+                      <img src="shirt/shirtwomen2.png" alt="Shirt 4">
                   </div>
                   <button class="next">&gt;</button>
               </div>
-              <h3>Cute Raccoon Mug</h3>
+              <h3>Women's Basic T-Shirt</h3>
               <p class="price">$12.99</p>
               <button class="add-to-cart">Add to Cart</button>
           </div>
@@ -77,102 +80,24 @@
               <div class="carousel">
                   <button class="prev">&lt;</button>
                   <div class="carousel-images">
-                      <img src="shirt/longshirt1.png" alt="Raccoon Keychain 1">
-                      <img src="shirt/longshirt2.png" alt="Raccoon Keychain 2">
+                      <img src="shirt/longshirt1.png" alt="Shirt 1">
+                      <img src="shirt/longshirt2.png" alt="Shirt 2">
                   </div>
                   <button class="next">&gt;</button>
               </div>
-              <h3>Raccoon Keychain</h3>
+              <h3>Women's Long Sleeve T-shirt</h3>
               <p class="price">$7.99</p>
               <button class="add-to-cart">Add to Cart</button>
           </div>
       </div>
   </section>
-  
-
-
-    <section id="contact">
-        <h2>Contact</h2>
-        <form action="action_page.php" method="GET"> <!--get is insecure, used for search bars, POST is secure-->
-            <div>
-              <label for="fname">first name:</label>
-              <input type="text" id="fname" placeholder="Jane" required>
-            </div>
-            <br>
-            <div>
-              <label for="lname">last name:</label>
-              <input type="text" id="lname" placeholder="Doe">
-            </div>
-            <br>
-            <div>
-              <label for="pass">password:</label>
-              <input type="password" id="pass" maxlength="12" required>
-            </div>
-            <br>
-            <div>
-              <label for="email">email:</label>
-              <input type="email" id="email" >
-            </div>
-            <br>
-            <div>
-              <label for="phone">phone number:</label>
-              <input type="tel" id="phone" >
-            </div>
-            <br>
-            <div>
-              <label for="bdate">birthdate:</label>
-              <input type="date" id="bdate" >
-            </div>
-            <br>
-            <div>
-              <label for="quant">quantity:</label>
-              <input type="number" id="quant" min="0" max="99" value="1">
-            </div>
-            <br>
-            <div>
-            <label for="title">title:</label> <!--label for and putting id below allows for the name to be selectable when choosing radio circle-->
-            
-              <label for="Mr.">Mr.</label>
-              <input type="radio" id="Mr." name="title">
-              <label for="Mrs.">Mrs.</label>
-              <input type="radio" id="Mrs." name="title">
-              <label for="PhD.">PhD.</label>
-              <input type="radio" id="PhD." name="title">
-            </div>
-            
-            <br>
-            
-            <div> <!--selectable menu with options-->
-              <label for="payment">payment:</label>
-              <select id="payment" name="payment">
-                <option value="visa">visa</option>
-                <option value="mastercard">mastercard</option>
-                <option value="giftcard">giftcard</option>
-              </select>
-            </div>
-            
-            <br>
-            
-            <div>
-              <label for="agree">I agree</label>
-              <input type="checkbox">
-            </div>
-            
-            <br>
-            
-            <div>
-            <input type="reset">
-            </div>
-            
-            <div>
-              <input type="submit">
-              </div>
-            </form>
-    </section>
 
     <footer>
         <p>2024 Kawaii Raccoon Gallery | Images are saved from the internet, I don't have credits</p>
     </footer>
+    <script src="script.js"></script>
+    <!--ionicons-->
+    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
