@@ -39,84 +39,24 @@
 
     
 
-    <section id="contact">
-        <h2>Contact</h2>
-        <form action="action_page.php" method="GET"> <!--get is insecure, used for search bars, POST is secure-->
-            <div>
-              <label for="fname">first name:</label>
-              <input type="text" id="fname" placeholder="Jane" required>
-            </div>
-            <br>
-            <div>
-              <label for="lname">last name:</label>
-              <input type="text" id="lname" placeholder="Doe">
-            </div>
-            <br>
-            <div>
-              <label for="pass">password:</label>
-              <input type="password" id="pass" maxlength="12" required>
-            </div>
-            <br>
-            <div>
-              <label for="email">email:</label>
-              <input type="email" id="email" >
-            </div>
-            <br>
-            <div>
-              <label for="phone">phone number:</label>
-              <input type="tel" id="phone" >
-            </div>
-            <br>
-            <div>
-              <label for="bdate">birthdate:</label>
-              <input type="date" id="bdate" >
-            </div>
-            <br>
-            <div>
-              <label for="quant">quantity:</label>
-              <input type="number" id="quant" min="0" max="99" value="1">
-            </div>
-            <br>
-            <div>
-            <label for="title">title:</label> <!--label for and putting id below allows for the name to be selectable when choosing radio circle-->
-            
-              <label for="Mr.">Mr.</label>
-              <input type="radio" id="Mr." name="title">
-              <label for="Mrs.">Mrs.</label>
-              <input type="radio" id="Mrs." name="title">
-              <label for="PhD.">PhD.</label>
-              <input type="radio" id="PhD." name="title">
-            </div>
-            
-            <br>
-            
-            <div> <!--selectable menu with options-->
-              <label for="payment">payment:</label>
-              <select id="payment" name="payment">
-                <option value="visa">visa</option>
-                <option value="mastercard">mastercard</option>
-                <option value="giftcard">giftcard</option>
-              </select>
-            </div>
-            
-            <br>
-            
-            <div>
-              <label for="agree">I agree</label>
-              <input type="checkbox">
-            </div>
-            
-            <br>
-            
-            <div>
-            <input type="reset">
-            </div>
-            
-            <div>
-              <input type="submit">
-              </div>
-            </form>
-    </section>
+<section id="contact-form">
+  <section id="contact">
+    <h2>Contact</h2>
+
+    <form class="contact-form" action="#" method="POST">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" rows="4" required></textarea>
+
+        <button type="submit">Send Message</button>
+    </form>
+</section>
+
 
     <footer>
         <p>2024 Kawaii Raccoon Gallery | Images are saved from the internet, I don't have credits</p>
