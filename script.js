@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const closeCartButton = document.getElementById('close-cart');
     const cartItemsContainer = document.getElementById('cart-items');
     const cartTotalPriceElement = document.getElementById('cart-total-price');
+    const carousels = document.querySelectorAll('.carousel');
 
     let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
     let cartCount = parseInt(localStorage.getItem('cartCount')) || 0;
@@ -84,6 +85,33 @@ document.addEventListener('DOMContentLoaded', () => {
             updateCartBadge();
             renderCartItems();
         }
+    });
+
+    carousels.forEach(carousel => {
+        const imagesContainer = carousel.querySelector('.carousel-images');
+        const images = imagesContainer.querySelectorAll('img');
+        const prevButton = carousel.querySelector('.prev');
+        const nextButton = carousel.querySelector('.next');
+        let currentIndex = 0;
+
+        function updateCarousel() {
+            const offset = -currentIndex * 100; // Move left by 100% of the currently shown image
+            imagesContainer.style.transform = `translateX(${offset}%)`;
+        }
+
+        prevButton.addEventListener('click', () => {
+            if (currentIndex > 0) {
+                currentIndex--;
+                updateCarousel();
+            }
+        });
+
+        nextButton.addEventListener('click', () => {
+            if (currentIndex < images.length - 1) {
+                currentIndex++;
+                updateCarousel();
+            }
+        });
     });
 
     // Initialize cart badge and sidebar on page load
