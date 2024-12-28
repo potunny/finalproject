@@ -6,6 +6,7 @@
     <title>Contact</title>
     <link rel="stylesheet" href="css1.css">
     <link rel="icon" href="tabicon.png" type="image/x-icon">
+    <script src="script.js" defer></script> <!-- Defer added to load after HTML -->
 </head>
 <body>
   <header class="header">
@@ -30,11 +31,21 @@
           <li><a href="buy.html">Buy</a></li>
       </ul>
     </div>
-    <div class="cart-container"> <!--also cart this line-->
-      <!-- Cart Container with a Nested Cart Badge -->
-          <button class="cart-button"><ion-icon name="cart" id="iconcart"></ion-icon></button>
-          <div id="cart-badge" class="badge">
-      </div>
+    <div class="cart-container">
+        <button class="cart-button" id="cart-button"><ion-icon name="cart" id="iconcart"></ion-icon></button>
+        <div id="cart-badge" class="badge"></div>
+
+        <!-- Sidebar Structure -->
+        <div id="cart-sidebar" class="sidebar">
+            <button class="close-cart" id="close-cart">x</button>
+            <h2>Your Cart</h2>
+            <div id="cart-items"></div>
+            <div class="cart-total">
+                <p>Total: $<span id="cart-total-price">0.00</span></p>
+                <button class="checkout-button">Go to Payment</button>
+            </div>
+        </div>
+    </div>
 </header>
 
     
@@ -62,7 +73,6 @@
         <p>2024 Kawaii Raccoon Gallery | Images are saved from the internet, I don't have credits</p>
     </footer>
         <!--ionicons-->
-        <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
-        <script src="script.js"></script>
+        <script type="module" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.esm.js"></script>
 </body>
 </html>

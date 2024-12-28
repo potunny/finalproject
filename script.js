@@ -1,54 +1,92 @@
-// Select the add-to-cart buttons and the badge element
-const addToCartButtons = document.querySelectorAll('.add-to-cart');
-const cartBadge = document.getElementById('cart-badge');
+document.addEventListener('DOMContentLoaded', () => {
+    const addToCartButtons = document.querySelectorAll('.add-to-cart');
+    const cartBadge = document.getElementById('cart-badge');
+    const cartSidebar = document.getElementById('cart-sidebar');
+    const closeCartButton = document.getElementById('close-cart');
+    const cartItemsContainer = document.getElementById('cart-items');
+    const cartTotalPriceElement = document.getElementById('cart-total-price');
 
-// Retrieve the cart count from localStorage or default to 0 if not set
-let cartCount = parseInt(localStorage.getItem('cartCount')) || 0;
+    let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+    let cartCount = parseInt(localStorage.getItem('cartCount')) || 0;
+    let totalPrice = parseFloat(localStorage.getItem('totalPrice')) || 0;
 
-// Function to update the cart badge
-function updateCartBadge() {
-    cartBadge.textContent = cartCount; // Update the badge with the current count
-    if (cartCount > 0) {
-        cartBadge.classList.add('visible'); // Show the badge if items are in the cart
-    } else {
-        cartBadge.classList.remove('visible'); // Hide the badge if the cart is empty
-    }
-}
-
-// Add event listener to each "Add to Cart" button
-addToCartButtons.forEach(button => {
-    button.addEventListener('click', () => {
-        cartCount++; // Increment cart count
-        localStorage.setItem('cartCount', cartCount); // Save the updated count to localStorage
-        updateCartBadge(); // Update the badge whenever an item is added
-    });
-});
-
-// Initialize the badge on page load
-updateCartBadge();
-
-
-
-// Carousel:
-
-document.querySelectorAll('.carousel').forEach(carousel => {
-    const images = carousel.querySelector('.carousel-images');
-    const prevButton = carousel.querySelector('.prev');
-    const nextButton = carousel.querySelector('.next');
-    const totalImages = images.children.length;
-    let index = 0;
-
-    function updateCarousel() {
-        images.style.transform = `translateX(-${index * 100}%)`;
+    // Function to update the cart badge
+    function updateCartBadge() {
+        cartBadge.textContent = cartCount;
+        cartBadge.classList.toggle('visible', cartCount > 0);
     }
 
-    prevButton.addEventListener('click', () => {
-        index = (index - 1 + totalImages) % totalImages; // Wrap around to the last image
-        updateCarousel();
+    function renderCartItems() {
+        cartItemsContainer.innerHTML = '';
+        totalPrice = 0;
+    
+        if (cartItems.length === 0) {
+            cartItemsContainer.innerHTML = '<p>No items in cart.</p>';
+        } else {
+            cartItems.forEach((item, index) => {
+                const itemElement = document.createElement('div');
+                itemElement.classList.add('cart-item');
+                itemElement.innerHTML = `
+                    <img src="${item.image}" alt="${item.name}" style="width: 50px; height: 50px;"/>
+                    <p>${item.name} - $${item.price}</p>
+                    <button class="remove-item" data-index="${index}">Remove</button>
+                `;
+                cartItemsContainer.appendChild(itemElement);
+                totalPrice += item.price;
+            });
+        }
+    
+        cartTotalPriceElement.textContent = totalPrice.toFixed(2);
+    }
+
+    // Function to save cart to LocalStorage
+    function saveCart() {
+        localStorage.setItem('cartItems', JSON.stringify(cartItems));
+        localStorage.setItem('cartCount', cartCount);
+        localStorage.setItem('totalPrice', totalPrice);
+    }
+
+    // Event listener for adding items to the cart
+    addToCartButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const itemId = button.getAttribute('data-id');
+            const itemImage = button.getAttribute('data-image');
+            const itemName = button.getAttribute('data-name');
+            const itemPrice = parseFloat(button.getAttribute('data-price'));
+
+            cartItems.push({ id: itemId, image: itemImage, name: itemName, price: itemPrice });
+            cartCount++;
+            saveCart();
+            updateCartBadge();
+            renderCartItems();
+        });
     });
 
-    nextButton.addEventListener('click', () => {
-        index = (index + 1) % totalImages; // Wrap around to the first image
-        updateCarousel();
+    // Open cart sidebar
+    cartBadge.parentElement.addEventListener('click', () => {
+        cartSidebar.classList.add('open');
+        renderCartItems();
     });
+
+    // Close cart sidebar
+    closeCartButton.addEventListener('click', () => {
+        cartSidebar.classList.remove('open');
+    });
+
+    // Remove item from cart
+    cartItemsContainer.addEventListener('click', (event) => {
+        if (event.target.classList.contains('remove-item')) {
+            const index = event.target.getAttribute('data-index');
+            cartCount--;
+            totalPrice -= cartItems[index].price;
+            cartItems.splice(index, 1);
+            saveCart();
+            updateCartBadge();
+            renderCartItems();
+        }
+    });
+
+    // Initialize cart badge and sidebar on page load
+    updateCartBadge();
+    renderCartItems();
 });
