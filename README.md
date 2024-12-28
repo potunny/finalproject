@@ -2,11 +2,11 @@
 #### Video Demo:  <https://www.youtube.com/watch?v=6V-hlkZiTME>
 #### Description:
 
-SUMMARY:
+### SUMMARY:
     Static website without much backend features like data storage and input from sign up, login etc, it was chosen to deepen the JavaScript understanding before moving into that area.    
-HTML:
+### HTML:
     4 html pages, starting with index, where the main area is, we present a raccoon image gallery, with a selection of the cutest and silliest images and it was given a name for each raccoon. I used ionicons in every page as a script in the end to add a better cart icon, a logo at the left upper side of the page was designed and a icon for every tab, created, there was a challenge to squeeze the navigation titles at the navigation bar to the right, and a acceptable solution for it was designed, different fonts from Google Fonts were added, a contact link at the index page was added in the contact section if a proper icon, and an about section in that page. The contactform page doesn't submit the contact request anywhere, but it has the functionality of asking for all fields to be filled and for a valid email address. About has a description of the site and a "bonus" raccoon image. Buy contains items to be purchased with their images    
-CSS:
+### CSS:
     In the CSS, it was designed with a clean and cute look with pastel pink colors and rounded corners, similar in all pages, responsive to screen size, looking good in all kinds of devices, hover effects and animation transitions, a responsive grid for the products and as well for the images inside the gallery, a modified scroll bar and image carousel for the store.    
-JAVASCRIPT:
+### JAVASCRIPT:
     The JS code is wrapped in DOMContentLoaded so the page, it creates const values to select the items inside the html, using DOM, so they can be used and modified, the cart data is initialized in localStorage so the items values start at 0 or are retrieved. There is a function for updating the cart badge so it becomes visible when there are items inside the cart, renderCartItems dynamically creates HTML elements to display the items in the cart and calculates the total price. saveCart saves the current state of the cart so the to Local Storage so the items are saved even when the page is refreshed. A event listener is added for the button that adds items to the cart so it's pushed into cartItems where total count and price are updated, there is a remove-item for each item added to the cart, as well as a image carousel.
